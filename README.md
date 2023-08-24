@@ -25,7 +25,7 @@ This command will interactively guide you through the process of selecting and d
 You can also exclude specific branches from deletion using the exclude command: -->
 
 ```bash
-branch-cleanup exclude <branchToExclude>
+clb exclude <branchToExclude>
 ```
 
 Replace ```branchToExclude``` with the name of the branch you want to exclude from deletion.
