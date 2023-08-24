@@ -1,0 +1,25 @@
+.gitignore
+.prettierrc
+Makefile
+node_modules/
+.DS_Store
+CONTRIBUTING.md
+
+# source
+**/*.ts
+*.ts
+/test
+
+# definitions
+!**/*.d.ts
+!*.d.ts
+
+# configuration
+gulpfile.js
+tsconfig.json
+tools
+/test/jest-config.json
+/.vscode
+.commitlint.config.ts
+.eslintrc.json
+.eslintignore
