@@ -1,0 +1,86 @@
+{
+    "name": "local-branch-cleanup",
+    "version": "1.0.0",
+    "description": "A CLI to delete unused local branches in a git repository",
+    "keywords": [
+        "git",
+        "branch",
+        "local",
+        "clean",
+        "delete"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "engines": {
+        "node": ">= 16"
+    },
+    "bin": {
+        "clb": "bin/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/demirtasdurmus/local-branch-cleanup.git"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/demirtasdurmus/local-branch-cleanup/issues"
+    },
+    "homepage": "https://github.com/demirtasdurmus/local-branch-cleanup#readme",
+    "scripts": {
+        "dev": "tsc -p . --watch",
+        "clean": "gulp clean:bundle",
+        "commit": "commit",
+        "build": "tsc -p .",
+        "format": "prettier --write \"**/*.{ts,json}\"",
+        "lint": "eslint '{bin,lib,commands,actions,test}/**/*.ts' --fix",
+        "start": "node bin/index.js",
+        "prepack": "npm run build",
+        "prepublish:npm": "npm run build",
+        "publish:npm": "npm publish --access public",
+        "prerelease": "npm run build",
+        "test": "jest --config test/jest-config.json",
+        "test:dev": "jest --config test/jest-config.json --watchAll",
+        "prepare": "husky install"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^17.7.1",
+        "@commitlint/config-conventional": "^17.7.0",
+        "@commitlint/prompt-cli": "^17.7.1",
+        "@types/gulp": "^4.0.13",
+        "@types/inquirer": "^9.0.3",
+        "@types/jest": "^29.5.3",
+        "@types/node": "^20.5.0",
+        "@typescript-eslint/eslint-plugin": "^6.4.0",
+        "@typescript-eslint/parser": "^6.4.0",
+        "del": "^6.1.1",
+        "eslint": "^8.47.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-jest": "^27.2.3",
+        "eslint-plugin-prettier": "^5.0.0",
+        "gulp": "^4.0.2",
+        "husky": "^8.0.3",
+        "jest": "^29.6.2",
+        "lint-staged": "^14.0.0",
+        "prettier": "^3.0.2",
+        "ts-jest": "^29.1.1",
+        "typescript": "^5.1.6"
+    },
+    "dependencies": {
+        "chalk": "^4.1.2",
+        "commander": "^11.0.0",
+        "inquirer": "^8.2.6",
+        "simple-git": "^3.19.1"
+    },
+    "lint-staged": {
+        "**/*.ts": [
+            "tsc --noEmit --esModuleInterop",
+            "eslint '{bin,lib,commands,actions}/**/*.ts' --fix",
+            "prettier --write \"**/*.ts\""
+        ],
+        "**/*.json": [
+            "eslint --fix",
+            "prettier --write"
+        ]
+    }
+}
