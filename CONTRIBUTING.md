@@ -21,8 +21,8 @@ To get started with contributing, follow these steps:
 2. **Clone your fork:** Clone the repository to your local machine using Git:
 
    ```bash
-   git clone https://github.com/your-username/local-branch-cleanup.git
-   cd node-typescript-starter
+   git clone https://github.com/demirtasdurmus/local-branch-cleanup.git
+   cd local-branch-cleanup
 
 3. **Create a branch:** Create a new branch to work on your changes:
 
@@ -56,6 +56,6 @@ Feel free to open GitHub issues for questions, suggestions, or anything related 
 
 ## License
 
-- By contributing to this project, you agree that your contributions will be licensed under the project's ISC License.
+- By contributing to this project, you agree that your contributions will be licensed under the project's MIT License.
 
 - Thank you for contributing to the Local Branch Cleanup project! Your efforts are greatly appreciated.
