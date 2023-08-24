@@ -1,8 +1,8 @@
-# LocalBranchCleanup
+# Local Branch Cleanup
 
-Welcome to your Node.js TypeScript starter project! This repository is set up with essential tools and configurations to help you kickstart your Node.js application development with TypeScript.
+Welcome to your Local Branch Cleanup project!
 
-A command-line interface (CLI) tool to delete unused local branches in a Git repository.
+Local Branch Cleanup is a command-line interface (CLI) tool to delete unused local branches in a Git repository.
 
 ## Installation
 
@@ -16,25 +16,28 @@ npm install -g local-branch-cleanup
 
 To clean up unused local branches in your Git repository, run the following command:
 
-```bash
+<!-- ```bash
 branch-cleanup
 ```
 
 This command will interactively guide you through the process of selecting and deleting local branches that have already been merged into the current branch.
 
-You can also exclude specific branches from deletion using the exclude command:
+You can also exclude specific branches from deletion using the exclude command: -->
 
 ```bash
 branch-cleanup exclude <branchToExclude>
 ```
 
 Replace ```branchToExclude``` with the name of the branch you want to exclude from deletion.
+The default value for ```branchToExclude``` is ```main```.
 
 ## Features
 
 * Easily clean up unused local branches.
-* Exclude specific branches from deletion.
-* Interactive command-line interface for branch selection.
+* Exclude a specific branch from deletion.
+* Interactive command-line interface for uncommitted changes.
+* Interactive command-line interface for unpushed changes.
+<!-- * Interactive command-line interface for branch selection. -->
 
 ## Contributing
 
