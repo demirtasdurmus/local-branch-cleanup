@@ -41,6 +41,7 @@
         "prerelease": "npm run build",
         "test": "jest --config test/jest-config.json",
         "test:dev": "jest --config test/jest-config.json --watchAll",
+        "danger:ci": "danger ci",
         "prepare": "husky install"
     },
     "devDependencies": {
@@ -53,6 +54,7 @@
         "@types/node": "^20.5.0",
         "@typescript-eslint/eslint-plugin": "^6.4.0",
         "@typescript-eslint/parser": "^6.4.0",
+        "danger": "^11.2.8",
         "del": "^6.1.1",
         "eslint": "^8.47.0",
         "eslint-config-prettier": "^9.0.0",
