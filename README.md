@@ -6,7 +6,7 @@ Local Branch Cleanup is a command-line interface (CLI) tool to delete unused loc
 
 ## Installation
 
-You can install the `branch-cleanup` CLI tool globally using npm:
+You can install the `local-branch-cleanup` CLI tool globally using npm:
 
 ```bash
 npm install -g local-branch-cleanup
@@ -17,7 +17,7 @@ npm install -g local-branch-cleanup
 To clean up unused local branches in your Git repository, run the following command:
 
 <!-- ```bash
-branch-cleanup
+lbc
 ```
 
 This command will interactively guide you through the process of selecting and deleting local branches that have already been merged into the current branch.
@@ -25,7 +25,7 @@ This command will interactively guide you through the process of selecting and d
 You can also exclude specific branches from deletion using the exclude command: -->
 
 ```bash
-clb exclude <branchToExclude>
+lbc exclude <branchToExclude>
 ```
 
 Replace ```branchToExclude``` with the name of the branch you want to exclude from deletion.

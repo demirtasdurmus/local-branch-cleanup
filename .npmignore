@@ -1,6 +1,5 @@
+# misc
 .gitignore
-.prettierrc
-Makefile
 node_modules/
 .DS_Store
 CONTRIBUTING.md
@@ -23,3 +22,5 @@ tools
 .commitlint.config.ts
 .eslintrc.json
 .eslintignore
+.prettierrc.json
+.prettierignore
