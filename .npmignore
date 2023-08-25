@@ -1,6 +1,6 @@
+# misc
 .gitignore
-.prettierrc
-Makefile
+.github
 node_modules/
 .DS_Store
 CONTRIBUTING.md
@@ -17,9 +17,12 @@ CONTRIBUTING.md
 # configuration
 gulpfile.js
 tsconfig.json
+commitlint.config.ts
+danger.ts
 tools
 /test/jest-config.json
 /.vscode
-.commitlint.config.ts
 .eslintrc.json
 .eslintignore
+.prettierrc.json
+.prettierignore

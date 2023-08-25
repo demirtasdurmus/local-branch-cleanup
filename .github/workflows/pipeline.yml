@@ -1,0 +1,66 @@
+name: Linting, Testing, Danger Review and Building
+
+on:
+  pull_request:
+    branches: [main, development]
+
+  workflow_dispatch:
+
+jobs:
+  Linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+
+      - name: Load & Cache Dependencies
+        uses: ./.github/actions/cached-deps
+        
+      - name: Run Linting Rules
+        run: npm run lint
+
+  Testing:
+    needs: Linting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+
+      - name: Load & Cache Dependencies
+        uses: ./.github/actions/cached-deps
+        
+      - name: Run Unit Tests
+        run: npm run test
+
+  Danger-Review:
+    env:
+      GITHUB_TOKEN: ${{ secrets.DANGER_CI_TOKEN }}
+    needs: Testing
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+
+      - name: Load & Cache Dependencies
+        uses: ./.github/actions/cached-deps
+
+      - name: Set up Git
+        run: |
+          git config --global user.name 'Danger CI'
+          git config --global user.email 'demirtasdurmus@gmail.com'
+        
+      - name: Run Danger
+        run: npm run danger:ci
+  
+  Building:
+    needs: Danger-Review
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+
+      - name: Load & Cache Dependencies
+        uses: ./.github/actions/cached-deps
+        
+      - name: Build
+        run: npm run build
