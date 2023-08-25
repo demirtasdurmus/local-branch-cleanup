@@ -16,7 +16,7 @@
         "node": ">= 16"
     },
     "bin": {
-        "clb": "bin/index.js"
+        "lbc": "bin/index.js"
     },
     "repository": {
         "type": "git",
