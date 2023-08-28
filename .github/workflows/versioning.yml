@@ -17,11 +17,6 @@ jobs:
       - name: Load & Cache Dependencies
         uses: ./.github/actions/cached-deps
 
-      - name: Set up Git
-        run: |
-          git config --global user.name 'Semantic Release'
-          git config --global user.email 'demirtasdurmus@gmail.com'
-
       - name: Set up Git and run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
