@@ -1,5 +1,17 @@
 # Local Branch Cleanup
 
+# [3.0.0](https://github.com/demirtasdurmus/local-branch-cleanup/compare/v2.0.0...v3.0.0) (2023-08-28)
+
+
+### Continuous Integration
+
+* add second arbitrary change to sync version ([7fedd2c](https://github.com/demirtasdurmus/local-branch-cleanup/commit/7fedd2c6ca605175826b929d6da7362937321e20))
+
+
+### BREAKING CHANGES
+
+* add arbitrary change to sync versioning with semantic release
+
 # [3.0.0-dev.1](https://github.com/demirtasdurmus/local-branch-cleanup/compare/v2.0.0...v3.0.0-dev.1) (2023-08-28)
 
 
