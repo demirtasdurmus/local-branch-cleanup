@@ -1,0 +1,31 @@
+name: Versioning With Semantic Release
+
+on:
+  push:
+    branches: [main, development, release/*]
+
+jobs:
+  Releasing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Load & Cache Dependencies
+        uses: ./.github/actions/cached-deps
+
+      - name: Set up Git
+        run: |
+          git config --global user.name 'Semantic Release'
+          git config --global user.email 'demirtasdurmus@gmail.com'
+
+      - name: Set up Git and run semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
+        run: |
+          git config --global user.name 'semantic_release_bot'
+          git config --global user.email 'demirtasdurmus@gmail.com'
+          npx semantic-release

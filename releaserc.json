@@ -1,0 +1,51 @@
+{
+    "branches": ["main", { "name": "development", "prerelease": "dev" }, { "name": "release/*", "prerelease": "rc" }],
+    "plugins": [
+        "@semantic-release/commit-analyzer",
+        [
+            "@semantic-release/release-notes-generator",
+            {
+                "preset": "angular",
+                "host": "https://github.com",
+                "owner": "demirtasdurmus",
+                "repo": "local-branch-cleanup",
+                "parserOpts": {
+                    "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES", "BREAKING"]
+                },
+                "writerOpts": {
+                    "commitsSort": ["subject", "scope"]
+                }
+            }
+        ],
+        [
+            "@semantic-release/npm",
+            {
+                "npmPublish": false
+            }
+        ],
+        [
+            "@semantic-release/github",
+            {
+                "assets": [
+                    { "path": "CHANGELOG.md", "label": "Changelog" },
+                    { "path": "package.json", "label": "Package" },
+                    { "path": "package-lock.json", "label": "Package Lock" }
+                ]
+            }
+        ],
+        [
+            "@semantic-release/changelog",
+            {
+                "changelogFile": "CHANGELOG.md",
+                "changelogTitle": "# Local Branch Cleanup"
+            }
+        ],
+        [
+            "@semantic-release/git",
+            {
+                "assets": ["CHANGELOG.md", "package.json", "package-lock.json"],
+                "message": "chore(release): ${nextRelease.version} \n\n${nextRelease.notes}"
+            }
+        ]
+    ]
+}
