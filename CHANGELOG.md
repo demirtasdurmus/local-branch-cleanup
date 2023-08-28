@@ -1,5 +1,17 @@
 # Local Branch Cleanup
 
+# [2.0.0-dev.1](https://github.com/demirtasdurmus/local-branch-cleanup/compare/v1.0.0...v2.0.0-dev.1) (2023-08-28)
+
+
+### Continuous Integration
+
+* add arbitrary commit to sync semantic release ([b17ddac](https://github.com/demirtasdurmus/local-branch-cleanup/commit/b17ddacf559fd83b287d86eb04fe4819199a6ade))
+
+
+### BREAKING CHANGES
+
+* add arbitrary commit to sync semantic release
+
 # 1.0.0 (2023-08-28)
 
 
