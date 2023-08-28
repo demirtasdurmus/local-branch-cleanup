@@ -2,7 +2,7 @@ name: Linting, Testing and Danger Review
 
 on:
   pull_request:
-    branches: [main, development]
+    branches: [main, develop]
 
   workflow_dispatch:
 

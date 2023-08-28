@@ -2,7 +2,7 @@ name: Versioning With Semantic Release
 
 on:
   push:
-    branches: [main, development, release/*]
+    branches: [main, develop, release/*]
 
 jobs:
   Releasing:
