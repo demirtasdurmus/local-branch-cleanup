@@ -1,5 +1,17 @@
 # Local Branch Cleanup
 
+# [1.0.0-dev.2](https://github.com/demirtasdurmus/local-branch-cleanup/compare/v1.0.0-dev.1...v1.0.0-dev.2) (2023-08-28)
+
+
+### chore
+
+* add arbitrary change to sync with semantic release ([5d0d520](https://github.com/demirtasdurmus/local-branch-cleanup/commit/5d0d5206945db2be285e475281f0308b17f12e6c))
+
+
+### BREAKING CHANGES
+
+* added arbitrary change to sync with semantic release
+
 # 1.0.0-dev.1 (2023-08-28)
 
 
