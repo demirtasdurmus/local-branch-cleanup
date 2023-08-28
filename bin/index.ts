@@ -9,7 +9,7 @@ const init = async () => {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
         .version(require('../package.json').version, '-v, --version', 'Output the current version.')
         .usage('<command> [options]')
-        .helpOption('-h, --help', 'Output usage information');
+        .helpOption('-h, --help', 'Output usage information.');
 
     await CommandLoader.load(program);
 
