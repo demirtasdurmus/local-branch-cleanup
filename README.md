@@ -1,4 +1,6 @@
-# Local Branch Cleanup
+# 📦🚀 Local Branch Cleanup
+
+[![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release) [![npm latest version](https://img.shields.io/npm/v/local-branch-cleanup/latest.svg)](https://www.npmjs.com/package/local-branch-cleanup)
 
 Welcome to your Local Branch Cleanup project!
 
