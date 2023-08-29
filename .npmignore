@@ -3,7 +3,6 @@
 .github
 node_modules/
 .DS_Store
-CONTRIBUTING.md
 
 # source
 **/*.ts
@@ -26,3 +25,4 @@ tools
 .eslintignore
 .prettierrc.json
 .prettierignore
+.releaserc.json
