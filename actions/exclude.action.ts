@@ -3,6 +3,7 @@ import * as chalk from 'chalk';
 import * as inquirer from 'inquirer';
 import { AbstractAction } from './abstract.action';
 import { ICommandInput } from '../commands';
+import { INFO_PREFIX, WARN_PREFIX } from '../lib/ui/prefixes';
 
 type Branches = {
     [key: string]: BranchSummaryBranch;
@@ -63,11 +64,11 @@ export class ExcludeAction extends AbstractAction {
     }
 
     private outputWarningMessage(message: string): void {
-        console.log(chalk.yellow.bold(message));
+        console.log(`\n${WARN_PREFIX} ${chalk.yellow(message)}`);
     }
 
     private outputSuccessMessage(message: string): void {
-        console.log(chalk.green.bold(message));
+        console.log(`\n${INFO_PREFIX} ${chalk.green(message)}`);
     }
 
     private async getBranchStatus(): Promise<StatusResult> {
