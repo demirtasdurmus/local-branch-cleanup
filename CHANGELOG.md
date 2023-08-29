@@ -1,5 +1,12 @@
 # Local Branch Cleanup
 
+# [3.1.0](https://github.com/demirtasdurmus/local-branch-cleanup/compare/v3.0.0...v3.1.0) (2023-08-29)
+
+
+### Features
+
+* improve ui and add tags to readme ([9e5036d](https://github.com/demirtasdurmus/local-branch-cleanup/commit/9e5036d5f108f2b2c1b467488b891c5cdd2d820d))
+
 # [3.1.0-dev.1](https://github.com/demirtasdurmus/local-branch-cleanup/compare/v3.0.0...v3.1.0-dev.1) (2023-08-29)
 
 
