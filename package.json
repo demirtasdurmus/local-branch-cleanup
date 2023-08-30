@@ -1,6 +1,6 @@
 {
     "name": "local-branch-cleanup",
-    "version": "3.3.0-dev.1",
+    "version": "3.3.0-rc.1",
     "description": "A CLI to delete unused local branches in a git repository",
     "keywords": [
         "git",
