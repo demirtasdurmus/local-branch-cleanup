@@ -1,5 +1,12 @@
 # Local Branch Cleanup
 
+# [3.3.0](https://github.com/demirtasdurmus/local-branch-cleanup/compare/v3.2.0...v3.3.0) (2023-08-30)
+
+
+### Features
+
+* add info command to display system and package summary ([7caf1f8](https://github.com/demirtasdurmus/local-branch-cleanup/commit/7caf1f8672bd6fc3b0749574650fe9b12f8d6226))
+
 # [3.3.0-rc.1](https://github.com/demirtasdurmus/local-branch-cleanup/compare/v3.2.0...v3.3.0-rc.1) (2023-08-30)
 
 
