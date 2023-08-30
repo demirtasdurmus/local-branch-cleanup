@@ -17,7 +17,7 @@ export class InfoAction extends AbstractAction {
 
     private async displaySystemInfo(): Promise<void> {
         console.info(chalk.green('[System Information]'));
-        console.info('OS Version     :', chalk.blue(JSON.stringify(`${platform()} - ${release()}`)));
+        console.info('OS Version     :', chalk.blue(this.getOsInfo()));
         console.info('NodeJS Version :', chalk.blue(process.version));
         console.info('NPM Version    :', chalk.blue(this.getPackageManagerInfo()), '\n');
     }
@@ -37,5 +37,26 @@ export class InfoAction extends AbstractAction {
         console.info(chalk.green('[Package Information]'));
         // eslint-disable-next-line @typescript-eslint/no-var-requires
         console.info('Package Version:', chalk.blue('v' + require('../package.json').version));
+    }
+
+    private getOsInfo(): string {
+        const currentPlatform = platform();
+        const currentRelease = release();
+        switch (currentPlatform) {
+            case 'darwin':
+                const prefix = currentRelease
+                    ? Number(currentRelease.split('.')[0]) > 15
+                        ? 'macOS'
+                        : 'OS X'
+                    : 'macOS';
+                return `${prefix} ${currentRelease || ''}`;
+            case 'win32':
+                return `Windows ${currentRelease || ''}`;
+            case 'linux':
+                const id = currentRelease ? currentRelease.replace(/^(\d+\.\d+).*/, '$1') : '';
+                return `Linux ${id || ''}`;
+            default:
+                return `${currentPlatform} ${currentRelease || ''}`;
+        }
     }
 }
