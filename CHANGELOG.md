@@ -1,5 +1,12 @@
 # Local Branch Cleanup
 
+# [3.2.0](https://github.com/demirtasdurmus/local-branch-cleanup/compare/v3.1.0...v3.2.0) (2023-08-30)
+
+
+### Features
+
+* display changes before prompting user for interaction ([d75fca0](https://github.com/demirtasdurmus/local-branch-cleanup/commit/d75fca0372a0cf002d96af086f082b7a6aa372cf))
+
 # [3.2.0-dev.1](https://github.com/demirtasdurmus/local-branch-cleanup/compare/v3.1.0...v3.2.0-dev.1) (2023-08-30)
 
 
