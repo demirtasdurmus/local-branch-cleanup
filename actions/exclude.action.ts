@@ -1,6 +1,7 @@
 import simpleGit, { BranchSummary, BranchSummaryBranch, FileStatusResult, SimpleGit, StatusResult } from 'simple-git';
 import * as chalk from 'chalk';
 import * as inquirer from 'inquirer';
+import * as boxen from 'boxen';
 import { AbstractAction } from './abstract.action';
 import { ICommandInput } from '../commands';
 import { INFO_PREFIX, WARN_PREFIX } from '../lib/ui/prefixes';
@@ -71,6 +72,47 @@ export class ExcludeAction extends AbstractAction {
         console.log(`\n${INFO_PREFIX} ${chalk.green(message)}`);
     }
 
+    private getFileStatus(index: string): string {
+        switch (index) {
+            case 'M':
+                return 'modified';
+            case 'A':
+                return 'added';
+            case 'D':
+                return 'deleted';
+            case 'R':
+                return 'renamed';
+            case 'C':
+                return 'copied';
+            case 'U':
+                return 'updated but unmerged';
+            case '?':
+                return 'untracked';
+            case '!':
+                return 'ignored';
+            default:
+                return 'unknown';
+        }
+    }
+
+    private displayUncommittedChanges(changes: FileStatusResult[]): void {
+        let fileChanges = '';
+        changes.forEach((change) => {
+            const statusIndex = change.index !== ' ' ? change.index : change.working_dir;
+            fileChanges += `${chalk.red(change.path)} - ${chalk.yellow(this.getFileStatus(statusIndex))}\n`;
+        });
+        console.log(
+            boxen(fileChanges, {
+                title: 'Changes',
+                titleAlignment: 'center',
+                padding: 1,
+                margin: 1,
+                borderColor: 'red',
+                borderStyle: 'doubleSingle',
+            }),
+        );
+    }
+
     private async getBranchStatus(): Promise<StatusResult> {
         return this.git.status();
     }
@@ -92,6 +134,8 @@ export class ExcludeAction extends AbstractAction {
     private async handleUncommittedChanges(changes: FileStatusResult[]): Promise<void> {
         if (changes.length > 0) {
             this.outputWarningMessage('Current branch has uncommitted changes!');
+
+            this.displayUncommittedChanges(changes);
 
             const prompt = inquirer.createPromptModule();
             const { action } = await prompt([
@@ -181,7 +225,7 @@ export class ExcludeAction extends AbstractAction {
                             type: 'list',
                             name: 'action',
                             message: `What do you want to do with branch ${coloredBranch}?`,
-                            choices: ['abort-deletion', 'continue-deletion', 'undo-commit', 'push-changes-and-delete'],
+                            choices: ['abort-deletion', 'continue-deletion', 'undo-commits', 'push-changes-and-delete'],
                         },
                     ]);
 
@@ -197,7 +241,7 @@ export class ExcludeAction extends AbstractAction {
                         continue;
                     }
 
-                    if (action === 'undo-commit') {
+                    if (action === 'undo-commits') {
                         await this.git.checkout(branch);
 
                         // prompt the user to select the base branch
@@ -219,7 +263,11 @@ export class ExcludeAction extends AbstractAction {
                         // Reset the branch to the common ancestor
                         await this.git.raw(['reset', '--soft', commonAncestor.trim()]);
 
+                        const currentBranchStatus = await this.getBranchStatus();
+
                         this.outputSuccessMessage(`The commits are undone for branch ${coloredBranch}!`);
+
+                        this.displayUncommittedChanges(currentBranchStatus.files);
 
                         // prompt user to decide the next action for uncommitted changes: delete, stash, commit
                         const prompt2 = inquirer.createPromptModule();
