@@ -1,6 +1,6 @@
 {
     "name": "local-branch-cleanup",
-    "version": "3.1.0",
+    "version": "3.2.0-dev.1",
     "description": "A CLI to delete unused local branches in a git repository",
     "keywords": [
         "git",
@@ -72,6 +72,7 @@
         "typescript": "^5.1.6"
     },
     "dependencies": {
+        "boxen": "^5.1.2",
         "chalk": "^4.1.2",
         "commander": "^11.0.0",
         "inquirer": "^8.2.6",
@@ -79,7 +80,7 @@
     },
     "lint-staged": {
         "**/*.ts": [
-            "tsc --noEmit --esModuleInterop",
+            "tsc --noEmit",
             "eslint '{bin,lib,commands,actions}/**/*.ts' --fix",
             "prettier --write \"**/*.ts\""
         ],
